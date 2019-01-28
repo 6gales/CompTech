@@ -1,42 +1,18 @@
 #include <iostream>
-#include <fstream>
-#include <map>
 #include <windows.h>
-#include "Levinsthein.h"
-
-bool wordSearch(std::ifstream &dictionary, const std::string &source,
-	std::multimap <size_t, std::string> &suggestions)
-{
-	const size_t upperBound = source.size() / 2 + source.size() % 2;
-	std::string tmp;
-	while (dictionary.good())
-	{
-		dictionary >> tmp;
-		size_t dist = LevensteinDistance(source, tmp);
-
-		if (!dist) return true;
-
-		if (dist <= upperBound)
-			suggestions.insert({ dist, tmp });
-	}
-	return false;
-}
+#include "BruteForce.h"
 
 int main(int argc, char** argv)
 {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
-	std::ifstream dictionary("dictionary.txt");
+
+	SpellChecker *sp = new BruteForce("relevance_order.txt");
+
 	std::string source;
-	std::multimap <size_t, std::string> suggestions;
-	
 	std::cin >> source;
 
-	if (wordSearch(dictionary, source, suggestions))
-	{
-		std::cout << "Alright!" << std::endl;
-	}
-	else
+	auto suggestions = sp->checkWord(source);
 	{
 		for (auto i : suggestions)
 		{
@@ -45,6 +21,6 @@ int main(int argc, char** argv)
 		if (!suggestions.size())
 			std::cout << "Word not found." << std::endl;
 	}
-
+	
 	return 0;
 }

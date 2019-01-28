@@ -1,4 +1,5 @@
 #include "BruteForce.h"
+#include "Levinsthein.h"
 
 std::multimap <size_t, std::string> BruteForce::checkWord(const std::string &source)
 {
@@ -15,6 +16,9 @@ std::multimap <size_t, std::string> BruteForce::checkWord(const std::string &sou
 		if (dist <= upperBound)
 			suggestions.insert({ dist, tmp });
 	}
+
+	dictionary.clear();
+	dictionary.seekg(0, std::ios::beg);
 
 	return suggestions;
 }
