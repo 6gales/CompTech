@@ -1,5 +1,5 @@
 #include "BruteForce.h"
-#include "Levinsthein.h"
+//#include "Levinsthein.h"
 
 std::multimap <size_t, std::string> BruteForce::checkWord(const std::string &source)
 {
