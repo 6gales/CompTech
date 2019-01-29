@@ -32,16 +32,28 @@ void testing(SpellChecker* sc, std::vector<std::string> correct, std::vector<std
 		std::multimap <size_t, std::string> suggestions = sc->checkWord(sourse);
 		int counter = 0;
 
+		if (suggestions.empty()) 
+		{
+			out << sourse << ";" << "not found" << ";" << answer << ";0" << std::endl;
+			continue;
+		}
+
 		for (auto j : suggestions)
 		{
 			if (counter != 5 && j.second == answer)
 			{
 				out << sourse << ";" << j.second << ";" << answer << ";1" << std::endl;
+				break;
 			}
 			++counter;
 		}
 
-		out << sourse << ";" << "not found" << ";" << answer << ";0" << std::endl;
+		if (counter == 5) 
+		{
+			out << sourse << ";" << "not found" << ";" << answer << ";0" << std::endl;
+			continue;
+		}
+
 	}
 }
 

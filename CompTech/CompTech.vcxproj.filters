@@ -53,6 +53,9 @@
     <Text Include="test1.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="incorrect.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Levinsthein.h">
@@ -68,6 +71,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ReturnSearch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="generatingDataSet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
