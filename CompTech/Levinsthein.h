@@ -27,11 +27,6 @@ class NFA
 
 };
 
-size_t prevDiff(const std::string &source, const std::string &target, size_t prevDist)
-{
-
-}
-
 void LevenshteinAutomata(const std::string &source, const size_t editDistance)
 {
 

@@ -11,7 +11,6 @@ class TNode
 	
 	bool finite;
 	std::vector <TNode*> next;
-//	std::map <char, TNode*> next;
 
 public:
 	TNode(bool _f) : finite{ _f },
@@ -61,6 +60,8 @@ public:
 		std::string str;
 		head->dfs(str);
 	}
+
+	const TNode *getHead() const { return head; }
 };
 
 //

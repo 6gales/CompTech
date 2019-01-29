@@ -1,13 +1,13 @@
 #include <iostream>
 #include <windows.h>
-#include "BruteForce.h"
+#include "ReturnSearch.h"
 
 int main(int argc, char** argv)
 {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
-	SpellChecker *sp = new BruteForce("relevance_order.txt");
+	SpellChecker *sp = new ReturnSearch("relevance_order.txt");
 
 	std::string source;
 	std::cin >> source;
@@ -22,5 +22,7 @@ int main(int argc, char** argv)
 			std::cout << "Word not found." << std::endl;
 	}
 	
+	delete sp;
+
 	return 0;
 }
