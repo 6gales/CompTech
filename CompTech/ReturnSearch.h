@@ -12,7 +12,7 @@ class Solution
 public:
 	Solution(const std::string &_s) :source(_s) {}
 	const Solution &operator+=(unsigned char ch) { word += ch; lastDistance = LevensteinDistance(source, word); return *this; }
-	const Solution &operator--() { word.pop_back(); return *this; }
+	const Solution &operator--() { if (word.size()) word.pop_back(); return *this; }
 	void addWord() { suggestions.insert({ lastDistance, word }); }
 
 	size_t currentSize() const { return word.size(); }
@@ -22,6 +22,7 @@ public:
 
 class ReturnSearch : public SpellChecker
 {
+public:
 	Trie wordTree;
 public:
 	ReturnSearch(const char *name) : SpellChecker(name), wordTree(dictionary) {}

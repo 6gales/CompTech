@@ -27,12 +27,30 @@
     <ClCompile Include="ReturnSearch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Levinsthein.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="test.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="alphabet_order.txt">
       <Filter>Resource Files</Filter>
     </Text>
     <Text Include="relevance_order.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="input.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="output.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="test1.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

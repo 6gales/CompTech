@@ -19,8 +19,9 @@ void ReturnSearch::recursiveSearch(const TNode *curr, Solution &resolve)
 		--resolve;
 		return;
 	}
-	if (editDistance < resolve.getDistance() && curr->isFinal())
+	if (resolve.getDistance() <= editDistance && curr->isFinal())
 		resolve.addWord();
+	
 	for (size_t i = 0; i < std::numeric_limits<unsigned char>::max() + 1; i++)
 	{
 		if (curr->getNext(static_cast<unsigned char>(i)))
@@ -29,4 +30,5 @@ void ReturnSearch::recursiveSearch(const TNode *curr, Solution &resolve)
 			recursiveSearch(curr->getNext(static_cast<unsigned char>(i)), resolve);
 		}
 	}
+	--resolve;
 }

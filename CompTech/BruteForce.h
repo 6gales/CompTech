@@ -1,5 +1,6 @@
 #pragma once
 #include "Interface.h"
+#include "Levinsthein.h"
 
 class BruteForce : public SpellChecker
 {	
