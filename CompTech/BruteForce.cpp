@@ -3,7 +3,7 @@
 
 std::multimap <size_t, std::string> BruteForce::checkWord(const std::string &source)
 {
-	const size_t upperBound = formula(source.size());
+	const size_t editDistance = editDistFormula(source.size());
 	std::string tmp;
 
 	std::multimap <size_t, std::string> suggestions;
@@ -13,7 +13,7 @@ std::multimap <size_t, std::string> BruteForce::checkWord(const std::string &sou
 		dictionary >> tmp;
 		size_t dist = LevensteinDistance(source, tmp);
 
-		if (dist <= upperBound)
+		if (dist <= editDistance)
 			suggestions.insert({ dist, tmp });
 	}
 
