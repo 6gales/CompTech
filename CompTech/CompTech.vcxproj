@@ -118,6 +118,7 @@
     <ClCompile Include="BruteForce.cpp" />
     <ClCompile Include="Levinsthein.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="NorvigSC.cpp" />
     <ClCompile Include="ReturnSearch.cpp" />
     <ClCompile Include="test.cpp" />
     <ClCompile Include="test.h" />
@@ -136,6 +137,7 @@
     <ClInclude Include="generatingDataSet.h" />
     <ClInclude Include="Interface.h" />
     <ClInclude Include="Levinsthein.h" />
+    <ClInclude Include="NorvigSC.h" />
     <ClInclude Include="ReturnSearch.h" />
     <ClInclude Include="Trie.h" />
   </ItemGroup>
