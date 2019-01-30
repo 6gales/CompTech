@@ -37,3 +37,46 @@ size_t LevensteinDistance(const std::string &source, const std::string &target)
 	}
 	return lev_dist[min_size];
 }
+
+const injection &injection::operator+=(unsigned char ch)
+{
+	size_t currentPos = target.size();
+	target += ch;
+	bool inject = false;
+
+	for (size_t i = nextEdge; i < source.size() && !inject; i++)
+	{
+		if (target[currentPos] == source[i])
+		{
+			mapping[i] = { true, i };
+			nextEdge = i + 1;
+			inject = true;
+		}
+	}
+
+	for (int i = nextEdge - 1; i >= 0 && !inject; i--)
+	{
+		if (target[currentPos] == source[i])
+		{
+			conflict(i, currentPos);
+		}
+	}
+
+	countDistance();
+	return *this;
+}
+
+void injection::countDistance()
+{
+	size_t i = 0;
+	while (!mapping[i].first && i < mapping.size())
+		i++;
+
+	distance = mapping[i].second + mapping[nextEdge - 1].second - nextEdge + 1
+		+ (mapping[nextEdge - 1].second - mapping[i].second);
+}
+
+void injection::conflict(size_t place, size_t candidat)
+{
+
+}

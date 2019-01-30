@@ -115,25 +115,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="BruteForce.cpp" />
+    <ClCompile Include="BKtree.cpp" />
     <ClCompile Include="Levinsthein.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ReturnSearch.cpp" />
-    <ClCompile Include="test.cpp" />
-    <ClCompile Include="test.h" />
     <ClCompile Include="Trie.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="alphabet_order.txt" />
-    <Text Include="incorrect.txt" />
-    <Text Include="input.txt" />
-    <Text Include="output.txt" />
     <Text Include="relevance_order.txt" />
-    <Text Include="test1.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BruteForce.h" />
-    <ClInclude Include="generatingDataSet.h" />
+    <ClInclude Include="BKtree.h" />
     <ClInclude Include="Interface.h" />
     <ClInclude Include="Levinsthein.h" />
     <ClInclude Include="ReturnSearch.h" />
