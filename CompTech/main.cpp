@@ -8,7 +8,20 @@
 std::string getName(std::string name)
 {
 	std::string result = name;
+	size_t flag = result.rfind('\\');
+	if(flag == std::string::npos)
+	{
+		return name;
+	}
 
+	result = result.substr(flag + 1, result.size());
+	size_t flag2 = result.rfind('.');
+	if (flag2 == std::string::npos)
+	{
+		return result;
+	}
+
+	return result.substr(0, flag2);
 }
 
 int main(int argc, char** argv)
@@ -22,16 +35,10 @@ int main(int argc, char** argv)
 
 	std::string name(argv[1]);
 
+	std::cout << getName(name) + "test.txt" << std::endl;
 
-
-
-
-	//test("relevance_order.txt", "input.txt", "incorrect.txt", "test1.txt", BRUTE);
-
-	system("pause");
+	//system("pause");
 	return 0;
-
-
 
 
 	SetConsoleCP(1251);
