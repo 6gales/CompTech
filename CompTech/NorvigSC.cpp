@@ -36,8 +36,8 @@ void NorvigSC::edits(const std::string& word, std::multimap<std::string, int>& s
 void NorvigSC::known(const std::string& word, std::map<std::string, int>& semantic_variants) {
 
 	std::multimap<std::string, int> syntactic_variants;
-	edits(word, syntactic_variants, editDistance);  
 	syntactic_variants.insert({ word, 0 });
+	edits(word, syntactic_variants, editDistance);  
 
 	for (int i = 0; i < dic.size(); i++) {
 		auto it = syntactic_variants.find(dic[i]);
