@@ -1,22 +1,41 @@
 #include <iostream>
 #include <windows.h>
-#include "BruteForce.h"
 #include "test.h"
 #include "generatingDataSet.h"
-#include "NorvigSC.h"
 #include <time.h>
+#include <string>
+
+std::string getName(std::string name)
+{
+	std::string result = name;
+
+}
 
 int main(int argc, char** argv)
 {	
 	srand(time(NULL));
 
-	SetConsoleCP(1251);
-	SetConsoleOutputCP(1251);
+	if (argc < 2) 
+	{
+		return 1;
+	}
 
-	test("relevance_order.txt", "input.txt", "incorrect.txt", "test1.txt", BRUTE);
+	std::string name(argv[1]);
+
+
+
+
+
+	//test("relevance_order.txt", "input.txt", "incorrect.txt", "test1.txt", BRUTE);
 
 	system("pause");
 	return 0;
+
+
+
+
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
 }
 
 
