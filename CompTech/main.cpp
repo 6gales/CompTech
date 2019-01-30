@@ -13,11 +13,11 @@ int main(int argc, char** argv)
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
-	/*
-	std::string source;
+	
+	/*std::string source;
 	std::cin >> source;
 	SpellChecker* sp = new NorvigSC("alphabet_order.txt");
-	sp->setDistance(3);
+	sp->setDistance(1);
 	auto suggestions = sp->checkWord(source);
 	{
 		for (auto i : suggestions)
@@ -26,8 +26,8 @@ int main(int argc, char** argv)
 		}
 		if (!suggestions.size())
 			std::cout << "Word not found." << std::endl;
-	}
-	*/
+	}*/
+	
 
 	//for (int i = 64; i <= 127; ++i) {
 	//	std::cout << (int)i << ' ' << (char)i << std::endl;

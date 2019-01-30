@@ -37,6 +37,7 @@ void NorvigSC::known(const std::string& word, std::map<std::string, int>& semant
 
 	std::multimap<std::string, int> syntactic_variants;
 	edits(word, syntactic_variants, editDistance);  
+	syntactic_variants.insert({ word, 0 });
 
 	for (int i = 0; i < dic.size(); i++) {
 		auto it = syntactic_variants.find(dic[i]);
@@ -64,13 +65,6 @@ std::multimap<size_t, std::string> NorvigSC::checkWord(const std::string& word)
 {
 	std::multimap<size_t, std::string> result;
 	std::map<std::string, int> semantic_variants;
-
-	for (int i = 0; i < dic.size(); i++) {
-		if (dic[i] == word) {
-			result.insert({ 0, word });
-			return result;
-		}
-	}
 
 	known(word, semantic_variants);
 	
