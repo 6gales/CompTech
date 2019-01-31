@@ -35,7 +35,7 @@ std::vector<std::string> correct, incorrect;
 void getExamples(const char* correct_source, const char* incorrect_source)
 {
 	//std::cout << correct_source << std::endl << incorrect_source << std::endl;
-	std::ifstream cor("C:/Users/YGAR/source/repos/CompTech3/CompTech/CompTech/input.txt");
+	std::ifstream cor("C:/Users/YGAR/source/repos/CompTech3/CompTech/CompTech/correct.txt");
 	std::ifstream incor("C:/Users/YGAR/source/repos/CompTech3/CompTech/CompTech/incorrect.txt");
 
 	std::string buff;
@@ -74,7 +74,7 @@ int main(int argc, char** argv)
 	std::string name(argv[1]);
 	std::ofstream output(getName(name) + "test.txt");
 	std::cout << "Uploading test files... ";
-	getExamples("input.txt", "incorrect.txt");
+	getExamples("correct.txt", "incorrect.txt");
 	std::cout << "COMPLITED!" << std::endl;
 	bp::ipstream pipe_out;
 	bp::opstream pipe_in;
@@ -88,8 +88,8 @@ int main(int argc, char** argv)
 		end = 0,
 		step = 10000;
 
-	//std::cout << correct.size() << ' ' << incorrect.size() << std::endl;
-	//std::cout << "1.4" << std::endl;
+	std::cout << correct.size() << ' ' << incorrect.size() << std::endl;
+	std::cout << "1.4" << std::endl;
 	while (true)
 	{
 		begin = rand() % correct.size();
@@ -108,19 +108,23 @@ int main(int argc, char** argv)
 	t1 = clock();
 	for (size_t i = begin; i < end; ++i)
 	{
-		//std::cout << "PROCESSING " << i - begin << std::endl;
+		if ((i- begin) % 100 == 0) {	std::cout << "PROCESSING " << i - begin << std::endl;	}
 		bool wordFound = false;
 		std::vector<std::string> result;
 		pipe_in << incorrect[i] << std::endl;
-		while (pipe_out && getline(pipe_out, buffer))
+		size_t counter = 0;
+		while (pipe_out)
 		{
-			if (buffer == "not found" || buffer == "end") {	break;	}
-			if (buffer == correct[i]) 
+			pipe_out >> buffer;
+			//std::cout << "buffer = " << buffer << std::endl;
+			if (buffer == "not found" || buffer == "end") { break; }
+			if (buffer == correct[i] && counter < 5) 
 			{
 				wordFound = true;
 			}
+			++counter;
 		}
-		output << ::incorrect[i] << ';' << ::correct[i] << ';' << buffer << ';' <<  wordFound << std::endl;
+		output << incorrect[i] << ';' << correct[i] << ';' << buffer << ';' <<  wordFound << std::endl;
 	}
 	pipe_in.pipe().close();
 	t2 = clock();
