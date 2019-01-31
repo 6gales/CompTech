@@ -27,24 +27,22 @@ map<string, vector<string>> create_empty_dictionary() {
 	return res;
 }
 
-void read_alphabet(string input) {
+void read_alphabet(string input, string output) {
 	ifstream in;
 	in.open(input);
 	map<string, vector<string>> ngramm_dictionary = create_empty_dictionary();
 	while (in.eof() == false) {
 		string word;
 		in >> word;
-		//cout << word << endl << "-----------" << endl;
 		if (word.length() >= 3) {
 			for (size_t i = 0; i < word.length() - 2; ++i) {
 				string trigraph = word.substr(i, 3);
-				//cout << trigraph << endl;
 				ngramm_dictionary.find(trigraph)->second.push_back(word);
 			}
 		}
 	}
 	ofstream out;
-	out.open("n-gramm_dictionary.txt");
+	out.open(output);
 	for (auto i : ngramm_dictionary) {
 		out << i.first << endl;
 		for (auto j : i.second) {

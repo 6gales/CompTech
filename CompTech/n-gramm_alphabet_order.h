@@ -7,4 +7,4 @@
 using namespace std;
 
 map<string, vector<string>> create_empty_dictionary();
-void read_alphabet(string input);
+void read_alphabet(string input, string output);

@@ -12,10 +12,14 @@ int main(int argc, char** argv)
 {	
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
-	string dictionary_path = "n-gramm_dictionary.txt";
+	string ordered_dict_path = "alphabet_order.txt";
 	if (argc >= 2) {
-		dictionary_path = argv[1];
+		ordered_dict_path = argv[1];
 	}
+	string dictionary_path = "n-gramm_dictionary.txt";
+
+	read_alphabet(ordered_dict_path, dictionary_path);
+
 	NGramm_Spell_Checker sp(dictionary_path.c_str());
 	while (stdin) {
 		string input_word;
