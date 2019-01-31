@@ -12,7 +12,8 @@ int main(int argc, char** argv)
 {	
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
-	NGramm_Spell_Checker sp("n-gramm_dictionary.txt");
+	string dictionary_path = argv[1];
+	NGramm_Spell_Checker sp(dictionary_path.c_str());
 	while (stdin) {
 		string input_word;
 		cin >> input_word;
