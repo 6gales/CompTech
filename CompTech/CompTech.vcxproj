@@ -121,8 +121,9 @@
     <ClCompile Include="n-gramm_alphabet_order.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="2-gramm_dictionary.txt" />
     <Text Include="alphabet_order.txt" />
-    <Text Include="n-gramm_dictionary.txt" />
+    <Text Include="3-gramm_dictionary.txt" />
     <Text Include="relevance_order.txt" />
   </ItemGroup>
   <ItemGroup>

@@ -31,7 +31,7 @@ map<string, set<string>> NGramm_Spell_Checker::read_dictionary(ifstream& in) {
 	return res;
 }
 
-void NGramm_Spell_Checker::write_dictionary(ofstream& out, map<string, set<string>> ngramm_dictionary) {
+void NGramm_Spell_Checker::write_dictionary(map<string, set<string>> ngramm_dictionary) {
 	for (auto i : ngramm_dictionary) {
 		cout << i.first << endl;
 		for (auto j : i.second) {
@@ -95,16 +95,18 @@ std::set<std::string> intersect(std::vector<std::set<std::string>> match_lists) 
 }
 
 std::multimap<size_t, std::string> NGramm_Spell_Checker::checkWord(const std::string & word) {
-	if (word.length() >= 3) {
+	//write_dictionary(ngramm_dictionary);
+	if (word.length() >= n_gr) {
 		std::vector<std::set<std::string>> match_lists;
-		for (size_t i = 0; i < word.length() - 2; ++i) {
-			string trigraph = word.substr(i, 3);
+		for (size_t i = 0; i < word.length() - n_gr + 1; ++i) {
+			string trigraph = word.substr(i, n_gr);
 			match_lists.push_back(ngramm_dictionary.find(trigraph)->second);
 		}
 
 		
 		std::set<std::string> intersect_result = intersect(match_lists);
 		std::multimap<size_t, std::string> result;
+		
 		for (size_t i = 0; i < 5; ++i) {
 			auto min = make_pair<size_t, std::string>(99999999, "no word");
 			for (auto j : intersect_result) {

@@ -35,7 +35,10 @@
     <Text Include="relevance_order.txt">
       <Filter>Resource Files</Filter>
     </Text>
-    <Text Include="n-gramm_dictionary.txt">
+    <Text Include="3-gramm_dictionary.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="2-gramm_dictionary.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>
