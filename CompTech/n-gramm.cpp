@@ -41,21 +41,6 @@ void NGramm_Spell_Checker::write_dictionary(ofstream& out, map<string, set<strin
 	}
 }
 
-std::vector<std::set<std::string>> intersect_sets(std::vector<std::set<std::string>> match_lists, int shift) {
-	if (match_lists.size() == 1) return match_lists;
-	if (match_lists.size() - shift - 2 <= 0) return match_lists;
-	std::set<std::string> tmp;
-	std::set_intersection(
-		match_lists[match_lists.size() - shift - 2].begin(), match_lists[match_lists.size() - shift - 2].end(), 
-		match_lists[match_lists.size() - shift - 1].begin(), match_lists[match_lists.size() - shift - 1].end(),
-		std::inserter(tmp, tmp.begin()));
-	if (tmp.empty()) return intersect_sets(match_lists, shift + 1);
-	match_lists.pop_back();
-	match_lists.pop_back();
-	match_lists.push_back(tmp);
-	return intersect_sets(match_lists, shift);
-}
-
 std::set<std::string> intersect(std::vector<std::set<std::string>> match_lists) {
 
 	if (match_lists.size() == 1) return match_lists[0];
@@ -103,20 +88,12 @@ std::multimap<size_t, std::string> NGramm_Spell_Checker::checkWord(const std::st
 		}
 
 		
-		std::set<std::string> intersect_result = intersect(match_lists);
 		std::multimap<size_t, std::string> result;
-		for (size_t i = 0; i < 5; ++i) {
-			auto min = make_pair<size_t, std::string>(99999999, "no word");
-			for (auto j : intersect_result) {
+		for (auto i : match_lists) {
+			for (auto j : i) {
 				size_t dist = LevensteinDistance(word, j);
-				if (dist < min.first) {
-					min.first = dist;
-					min.second = j;
-				}
-			}
-			if (min.first < word.length() * 10) {
-				result.insert(min);
-				intersect_result.erase(min.second);
+				if(dist <= word.length()*2/3)
+					result.insert(make_pair(dist, j));
 			}
 		}
 		return result;
