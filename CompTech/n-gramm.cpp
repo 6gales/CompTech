@@ -101,19 +101,8 @@ std::multimap<size_t, std::string> NGramm_Spell_Checker::checkWord(const std::st
 		
 		std::set<std::string> intersect_result = intersect(match_lists);
 		std::multimap<size_t, std::string> result;
-		for (size_t i = 0; i < 5; ++i) {
-			auto min = make_pair<size_t, std::string>(99999999, "no word");
-			for (auto j : intersect_result) {
-				size_t dist = LevensteinDistance(word, j);
-				if (dist < min.first) {
-					min.first = dist;
-					min.second = j;
-				}
-			}
-			if (min.first < word.length() * 10) {
-				result.insert(min);
-				intersect_result.erase(min.second);
-			}
+		for (auto i : intersect_result) {
+			result.insert(make_pair(0, i));
 		}
 		return result;
 	}
