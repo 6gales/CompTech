@@ -59,7 +59,7 @@ std::vector<std::set<std::string>> intersect_sets(std::vector<std::set<std::stri
 std::set<std::string> intersect(std::vector<std::set<std::string>> match_lists) {
 	std::set<std::string> result;
 	std::set<std::string> buffer;
-
+	if (match_lists.size() <= 1) return match_lists[0];
 	set_intersection(
 		match_lists[0].begin(), match_lists[0].end(),
 		match_lists[1].begin(), match_lists[1].end(),
