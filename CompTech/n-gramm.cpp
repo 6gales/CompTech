@@ -1,4 +1,6 @@
 #include "n-gramm.h"
+#include "Levinsthein.h"
+
 #include <map>
 #include <iterator>
 #include <algorithm>
@@ -88,7 +90,7 @@ std::set<std::string> intersect(std::vector<std::set<std::string>> match_lists) 
 	return result;
 }
 
-std::multimap<size_t, std::string> NGramm_Spell_Checker::checkWord(const std::string & word) { // TODO: словарь сделать картой строк-карт
+std::multimap<size_t, std::string> NGramm_Spell_Checker::checkWord(const std::string & word) {
 	if (word.length() >= 3) {
 		std::vector<std::set<std::string>> match_lists;
 		for (size_t i = 0; i < word.length() - 2; ++i) {
@@ -97,10 +99,23 @@ std::multimap<size_t, std::string> NGramm_Spell_Checker::checkWord(const std::st
 		}
 
 		
-		std::set<std::string> result = intersect(match_lists);
-		for (auto i : result) {
-			cout << i << endl;
+		std::set<std::string> intersect_result = intersect(match_lists);
+		std::multimap<size_t, std::string> result;
+		for (size_t i = 0; i < 5; ++i) {
+			auto min = make_pair<size_t, std::string>(99999999, "no word");
+			for (auto j : intersect_result) {
+				size_t dist = LevensteinDistance(word, j);
+				if (dist < min.first) {
+					min.first = dist;
+					min.second = j;
+				}
+			}
+			if (min.first < word.length() * 10) {
+				result.insert(min);
+				intersect_result.erase(min.second);
+			}
 		}
+		return result;
 	}
 	return std::multimap<size_t, std::string>();
 }

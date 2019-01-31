@@ -19,6 +19,9 @@ int main(int argc, char** argv)
 	NGramm_Spell_Checker sp("n-gramm_dictionary.txt");
 	std::multimap <size_t, std::string> result = sp.checkWord(input_word);
 
+	for (auto i : result) {
+		cout << i.first << " " << i.second << endl;
+	}
 
 	system("pause");
 	return 0;
