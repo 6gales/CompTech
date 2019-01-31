@@ -1,5 +1,4 @@
 #include <iostream>
-//#include "test.h"
 #include <time.h>
 #include <string>
 #include <boost/process.hpp>
@@ -71,10 +70,7 @@ int main(int argc, char** argv)
 	std::cout << "COMPLITED!" << std::endl;
 	bp::ipstream pipe_out;
 	bp::opstream pipe_in;
-	//std::cout << "1.2" << std::endl;
 	bp::child c(argv[1], argv[2], bp::std_in < pipe_in, bp::std_out > pipe_out);
-	//bp::child c(argv[1],)
-	//std::cout << "1.3" << std::endl;
 
 	std::string buffer;
 					
@@ -82,8 +78,6 @@ int main(int argc, char** argv)
 		end = 0,
 		step = 100000;
 
-	//std::cout << correct.size() << ' ' << incorrect.size() << std::endl;
-	//std::cout << "1.4" << std::endl;
 	while (true)
 	{
 		begin = rand() % correct.size();
