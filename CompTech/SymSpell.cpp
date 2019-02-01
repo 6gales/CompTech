@@ -2,7 +2,7 @@
 
 void SymSpell::fillDeletionsMap(const std::string &word, size_t pos)
 {
-	editDistance = 2; //editDistFormula(word.size());
+	editDistance = editDistFormula(word.size());
 	
 	std::map <std::string, size_t> toInsert;
 	generateDeletions(word, editDistance, toInsert);
@@ -15,6 +15,7 @@ void SymSpell::generateDeletions(const std::string &word,
 	size_t distance, std::map <std::string, size_t> &deletions)
 {
 	deletions.insert({ word, editDistance - distance });
+	
 	if (!distance || word.size() <= 1)
 		return;
 
@@ -29,6 +30,9 @@ void SymSpell::generateDeletions(const std::string &word,
 
 SymSpell::SymSpell(const char *name) : SpellChecker(name)
 {
+	editDistFormula = editDistFormula = [](size_t sz) -> size_t
+	{ if (sz / 2 + sz % 2 >= 2) return 2; return 1; };
+
 	std::string word;
 	while (dictionary.good())
 	{
@@ -40,7 +44,7 @@ SymSpell::SymSpell(const char *name) : SpellChecker(name)
 
 std::multimap<size_t, std::string> SymSpell::checkWord(const std::string &word)
 {
-	editDistance = 2; //editDistFormula(word.size());
+	editDistance = editDistFormula(word.size());
 	
 	std::map <std::string, size_t> deletions;
 	generateDeletions(word, editDistance, deletions);
