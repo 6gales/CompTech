@@ -52,6 +52,7 @@ LinSpell::LinSpell(const char* name) : SpellChecker(name)
 
 std::multimap<size_t, std::string> LinSpell::checkWord(const std::string &word)
 {
+	setDistance(editDistFormula(word.size()));
 	std::multimap<size_t, std::string> variants;
 
 	edits(word, variants);
