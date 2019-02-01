@@ -1,10 +1,9 @@
 #include <iostream>
 #include <windows.h>
-#include "BruteForce.h"
-#include "test.h"
-#include "generatingDataSet.h"
-#include "NorvigSC.h"
 #include <time.h>
+#include "generatingDataSet.h"
+#include "LinSpell.h"
+
 
 int main(int argc, char** argv)
 {	
@@ -13,11 +12,13 @@ int main(int argc, char** argv)
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
-	/*
-	std::string source;
+
+	/*std::string source;
 	std::cin >> source;
-	SpellChecker* sp = new NorvigSC("alphabet_order.txt");
-	sp->setDistance(2);
+
+	SpellChecker* sp = new LinSpell("alphabet_order.txt");
+	sp->setDistance(3);
+
 	auto suggestions = sp->checkWord(source);
 	{
 		for (auto i : suggestions)
@@ -27,7 +28,6 @@ int main(int argc, char** argv)
 		if (!suggestions.size())
 			std::cout << "Word not found." << std::endl;
 	}*/
-	
 
 	//for (int i = 64; i <= 127; ++i) {
 	//	std::cout << (int)i << ' ' << (char)i << std::endl;
@@ -37,21 +37,8 @@ int main(int argc, char** argv)
 	//std::cout << (int)'à' << std::endl << (int)'ÿ' << std::endl;
 	//corruptData("input.txt", "incorrect.txt");
 	//std::cout << 'ÿ' - 'À' + 1 << std::endl;
-	test("relevance_order.txt", "input.txt", "incorrect.txt", "test1.txt", BRUTE);
+	//test("relevance_order.txt", "input.txt", "incorrect.txt", "test1.txt", BRUTE);
 
-	//std::string source;
-	//std::cin >> source;
-
-
-	//auto suggestions = sp->checkWord(source);
-	//{
-	//	for (auto i : suggestions)
-	//	{
-	//		std::cout << i.first << ": \"" << i.second << "\"" << std::endl;
-	//	}
-	//	if (!suggestions.size())
-	//		std::cout << "Word not found." << std::endl;
-	//}
 	system("pause");
 	return 0;
 }

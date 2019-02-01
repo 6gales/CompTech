@@ -18,25 +18,10 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Trie.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="BruteForce.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ReturnSearch.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Levinsthein.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="test.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="test.h">
-      <Filter>Header Files</Filter>
-    </ClCompile>
-    <ClCompile Include="NorvigSC.cpp">
+    <ClCompile Include="LinSpell.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -64,22 +49,13 @@
     <ClInclude Include="Levinsthein.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Trie.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Interface.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="BruteForce.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ReturnSearch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="generatingDataSet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="NorvigSC.h">
+    <ClInclude Include="LinSpell.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

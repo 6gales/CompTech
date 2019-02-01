@@ -115,14 +115,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="BruteForce.cpp" />
     <ClCompile Include="Levinsthein.cpp" />
+    <ClCompile Include="LinSpell.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="NorvigSC.cpp" />
-    <ClCompile Include="ReturnSearch.cpp" />
-    <ClCompile Include="test.cpp" />
-    <ClCompile Include="test.h" />
-    <ClCompile Include="Trie.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="alphabet_order.txt" />
@@ -133,13 +128,10 @@
     <Text Include="test1.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BruteForce.h" />
     <ClInclude Include="generatingDataSet.h" />
     <ClInclude Include="Interface.h" />
     <ClInclude Include="Levinsthein.h" />
-    <ClInclude Include="NorvigSC.h" />
-    <ClInclude Include="ReturnSearch.h" />
-    <ClInclude Include="Trie.h" />
+    <ClInclude Include="LinSpell.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
