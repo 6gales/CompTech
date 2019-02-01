@@ -4,13 +4,11 @@
 
 	class NorvigSC : public SpellChecker {
 	private:
-		//std::map<std::string, int> freq_table;
-		//void fillFreqTable(const char*);
-		
+
 		std::vector<std::string> dic;
 
-		void edit1(const std::string&, std::multimap<std::string, int>&, int);
-		void edits(const std::string&, std::multimap<std::string, int>&, int);
+		void edit1(const std::string&, std::multimap<std::string, int>&, size_t);
+		void edits(const std::string&, std::multimap<std::string, int>&, size_t);
 		void known(const std::string&, std::map<std::string, int>&);
 
 	public:

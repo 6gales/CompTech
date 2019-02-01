@@ -1,8 +1,6 @@
 #include "NorvigSC.h"
-#include <sstream>
-#include <fstream>
 
-void NorvigSC::edit1(const std::string &word, std::multimap<std::string, int>& syntactic_variants, int edit_distance)
+void NorvigSC::edit1(const std::string &word, std::multimap<std::string, int>& syntactic_variants, size_t edit_distance)
 {
 	for (int i = 0; i < word.size(); i++) {
 		syntactic_variants.insert({ word.substr(0, i) + word.substr(i + 1), edit_distance });
@@ -20,7 +18,7 @@ void NorvigSC::edit1(const std::string &word, std::multimap<std::string, int>& s
 	}
 }
 
-void NorvigSC::edits(const std::string& word, std::multimap<std::string, int>& syntactic_variants, int edit_distance) {
+void NorvigSC::edits(const std::string& word, std::multimap<std::string, int>& syntactic_variants, size_t edit_distance) {
 	if (edit_distance == 1) {
 		edit1(word, syntactic_variants, edit_distance);
 	}
@@ -49,20 +47,21 @@ void NorvigSC::known(const std::string& word, std::map<std::string, int>& semant
 
 NorvigSC::NorvigSC(const char* name) : SpellChecker(name)
 {
-	std::string str;
+	editDistFormula = editDistFormula = [](size_t sz) -> size_t
+	{ if (sz / 2 + sz % 2 >= 2) return 2; return 1; };
+
 	std::string word;
-	while (std::getline(dictionary, str))
+	while (dictionary.good())
 	{
-		std::istringstream line(str);
-		while (line >> word)
-		{
-			dic.push_back(word);	//заполняем вектор словаря
-		}
+		dictionary >> word;
+		dic.push_back(word); //заполняем вектор словаря
 	}
 }
 
 std::multimap<size_t, std::string> NorvigSC::checkWord(const std::string& word)
 {
+	editDistance = editDistFormula(word.size());
+
 	std::multimap<size_t, std::string> result;
 	std::map<std::string, int> semantic_variants;
 
