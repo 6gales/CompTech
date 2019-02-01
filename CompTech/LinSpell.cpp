@@ -41,7 +41,6 @@ void LinSpell::edits(const std::string& word, std::multimap<size_t, std::string>
 LinSpell::LinSpell(const char* name) : SpellChecker(name)
 {
 	std::string str;
-
 	while (dictionary.good())
 	{
 		dictionary >> str;

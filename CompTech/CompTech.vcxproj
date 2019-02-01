@@ -121,14 +121,10 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="alphabet_order.txt" />
-    <Text Include="incorrect.txt" />
-    <Text Include="input.txt" />
-    <Text Include="output.txt" />
     <Text Include="relevance_order.txt" />
     <Text Include="test1.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="generatingDataSet.h" />
     <ClInclude Include="Interface.h" />
     <ClInclude Include="Levinsthein.h" />
     <ClInclude Include="LinSpell.h" />
