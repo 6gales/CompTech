@@ -18,12 +18,6 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Trie.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ReturnSearch.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Levinsthein.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -43,13 +37,7 @@
     <ClInclude Include="Levinsthein.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Trie.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Interface.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ReturnSearch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="BKtree.h">

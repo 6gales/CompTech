@@ -1,30 +1,31 @@
 #include <iostream>
-#include <fstream>
 #include <windows.h>
 #include "BKtree.h"
 
-#include <ctime>
-
 int main(int argc, char** argv)
-{	
+{
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
-	auto start = clock();
-	SpellChecker *sp = new BKtree("relevance_order.txt");
-	std::cout << (double)(clock() - start) / CLOCKS_PER_SEC << std::endl;
-	std::string source;
-	std::cin >> source;
-	start = clock();
-	auto suggestions = sp->checkWord(source);
+	std::string dictionary_path = "relevance_order.txt";
+	if (argc >= 2)
 	{
-		std::cout << (double)(clock() - start) / CLOCKS_PER_SEC << std::endl;
-		for (auto i : suggestions)
-		{
-			std::cout << i.first << ": \"" << i.second << "\"" << std::endl;
-		}
-		if (!suggestions.size())
-			std::cout << "Word not found." << std::endl;
+		dictionary_path = argv[1];
 	}
-	
+
+	BKtree sp(dictionary_path.c_str());
+	while (stdin)
+	{
+		std::string input_word;
+		std::cin >> input_word;
+		std::multimap <size_t, std::string> result = sp.checkWord(input_word);
+		size_t counter = 0;
+		for (auto i : result)
+		{
+			if (counter >= 5) break;
+			std::cout << i.second << std::endl;
+			counter++;
+		}
+		std::cout << "end" << std::endl;
+	}
 	return 0;
 }

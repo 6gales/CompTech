@@ -118,8 +118,6 @@
     <ClCompile Include="BKtree.cpp" />
     <ClCompile Include="Levinsthein.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="ReturnSearch.cpp" />
-    <ClCompile Include="Trie.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="alphabet_order.txt" />
@@ -129,8 +127,6 @@
     <ClInclude Include="BKtree.h" />
     <ClInclude Include="Interface.h" />
     <ClInclude Include="Levinsthein.h" />
-    <ClInclude Include="ReturnSearch.h" />
-    <ClInclude Include="Trie.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
