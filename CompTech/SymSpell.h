@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include "Interface.h"
+#include "Levinsthein.h"
 
 class SymSpell : public SpellChecker
 {

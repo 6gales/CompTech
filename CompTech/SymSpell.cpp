@@ -69,7 +69,7 @@ std::multimap<size_t, std::string> SymSpell::checkWord(const std::string &word)
 
 	std::multimap<size_t, std::string> suggestions;
 	for (auto i : reverseSuggestions)
-		suggestions.insert({ i.second, i.first });
+		suggestions.insert({ LevensteinDistance(i.first, word), i.first });
 
 	return suggestions;
 }
