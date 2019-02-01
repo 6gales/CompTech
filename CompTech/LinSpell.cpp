@@ -1,5 +1,4 @@
 #include "LinSpell.h"
-#include <sstream>
 
 size_t LinSpell::hash(const std::string& str) const
 {

@@ -122,7 +122,6 @@
   <ItemGroup>
     <Text Include="alphabet_order.txt" />
     <Text Include="relevance_order.txt" />
-    <Text Include="test1.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Interface.h" />

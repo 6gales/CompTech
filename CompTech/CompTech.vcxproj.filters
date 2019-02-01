@@ -32,9 +32,6 @@
     <Text Include="relevance_order.txt">
       <Filter>Resource Files</Filter>
     </Text>
-    <Text Include="test1.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Levinsthein.h">
