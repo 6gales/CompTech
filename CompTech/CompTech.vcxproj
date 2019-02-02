@@ -115,11 +115,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Levinsthein.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="NorvigSC.cpp" />
     <ClCompile Include="NorvigTrie.cpp" />
-    <ClCompile Include="ReturnSearch.cpp" />
     <ClCompile Include="Trie.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -129,9 +126,6 @@
   <ItemGroup>
     <ClInclude Include="NorvigTrie.h" />
     <ClInclude Include="Interface.h" />
-    <ClInclude Include="Levinsthein.h" />
-    <ClInclude Include="NorvigSC.h" />
-    <ClInclude Include="ReturnSearch.h" />
     <ClInclude Include="Trie.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

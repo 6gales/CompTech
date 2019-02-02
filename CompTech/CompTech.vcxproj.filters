@@ -21,15 +21,6 @@
     <ClCompile Include="Trie.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ReturnSearch.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Levinsthein.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="NorvigSC.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="NorvigTrie.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -43,19 +34,10 @@
     </Text>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Levinsthein.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Trie.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Interface.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ReturnSearch.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="NorvigSC.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="NorvigTrie.h">

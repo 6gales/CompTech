@@ -1,78 +1,64 @@
 #include "NorvigTrie.h"
 
-void edit(const std::string &word,
-	std::map<std::string, size_t> &syntactic_variants, size_t edit_distance)
+std::map<std::string, size_t> NorvigTrie::editWord(const std::string &word, size_t currDistance)
 {
+	std::map<std::string, size_t> generated;
+
 	for (int i = 0; i < word.size(); i++)
 	{
-		syntactic_variants.insert({ word.substr(0, i) + word.substr(i + 1), edit_distance });
+		generated.insert({ word.substr(0, i) + word.substr(i + 1), currDistance });
 	}
 	for (int i = 0; i < word.size() - 1; i++)
 	{
-		syntactic_variants.insert({ word.substr(0, i) + word[i + 1] + word[i] + word.substr(i + 2), edit_distance });
+		generated.insert({ word.substr(0, i) + word[i + 1] + word[i] + word.substr(i + 2), currDistance });
 	}
 	for (char ch = 'à'; ch <= 'ÿ'; ch++)
 	{
 		for (int i = 0; i < word.size(); i++)
 		{
-			syntactic_variants.insert({ word.substr(0, i) + ch + word.substr(i + 1), edit_distance });
+			generated.insert({ word.substr(0, i) + ch + word.substr(i + 1), currDistance });
 		}
 		for (int i = 0; i < word.size() + 1; i++)
 		{
-			syntactic_variants.insert({ word.substr(0, i) + ch + word.substr(i), edit_distance });
+			generated.insert({ word.substr(0, i) + ch + word.substr(i), currDistance });
 		}
 	}
+
+	return generated;
 }
 
-void edits(const std::string& word,
-	std::map<std::string, size_t> &syntactic_variants, size_t edit_distance)
+std::vector <std::map <std::string, size_t>> NorvigTrie::edits(const std::string& word)
 {
-	if (edit_distance == 1)
+	std::vector <std::map <std::string, size_t>> editLevel(editDistance + 1);
+	editLevel[0].emplace(word, 0);
+	
+	for (size_t i = 1; i <= editDistance; i++)
 	{
-		edit(word, syntactic_variants, edit_distance);
-	}
-	else
-	{
-		edits(word, syntactic_variants, edit_distance - 1);
-		std::map<std::string, size_t> sub_syntactic_variants = syntactic_variants;
-		for (auto it = sub_syntactic_variants.begin(); it != sub_syntactic_variants.end(); it++)
+		for (auto it : editLevel[i - 1])
 		{
-			edit(it->first, syntactic_variants, edit_distance);
+			auto nextLevel = editWord(it.first, editDistance);
+			editLevel[i].insert(nextLevel.begin(), nextLevel.end());
 		}
 	}
+	return editLevel;
 }
 
 std::multimap<size_t, std::string> NorvigTrie::checkWord(const std::string &word)
 {
-	editDistance = 1; editDistFormula(word.size());
+	editDistance = editDistFormula(word.size());
 
-	std::map <std::string, size_t> generated;
-	edits(word, generated, editDistance);
+	auto generated = edits(word);
 
 	std::multimap<size_t, std::string> suggestions;
 
-	for (auto i : generated)
+	for (auto vecIt : generated)
 	{
-		if (wordTree.findWord(i.first))
-			suggestions.emplace(i.second, i.first);
+		for (auto mapIt : vecIt)
+		{
+			if (wordTree.findWord(mapIt.first))
+				suggestions.emplace(mapIt.second, mapIt.first);
+		}
 	}
 
 	return suggestions;
 }
-
-
-
-//void known(const std::string& word, std::map<std::string, int>& semantic_variants)
-//{
-//
-//	std::multimap<std::string, size_t> syntactic_variants;
-//	syntactic_variants.insert({ word, 0 });
-//	edits(word, syntactic_variants, editDistance);
-//
-//	for (int i = 0; i < dic.size(); i++) {
-//		auto it = syntactic_variants.find(dic[i]);
-//		if (it != syntactic_variants.end()) {
-//			semantic_variants[it->first] = it->second;
-//		}
-//	}
-//}
