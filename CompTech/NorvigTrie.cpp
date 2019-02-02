@@ -4,21 +4,21 @@ std::map<std::string, size_t> NorvigTrie::editWord(const std::string &word, size
 {
 	std::map<std::string, size_t> generated;
 
-	for (int i = 0; i < word.size(); i++)
+	for (size_t i = 0; i < word.size(); i++)
 	{
 		generated.insert({ word.substr(0, i) + word.substr(i + 1), currDistance });
 	}
-	for (int i = 0; i < word.size() - 1; i++)
+	for (size_t i = 0; i < word.size() - 1; i++)
 	{
 		generated.insert({ word.substr(0, i) + word[i + 1] + word[i] + word.substr(i + 2), currDistance });
 	}
 	for (char ch = 'à'; ch <= 'ÿ'; ch++)
 	{
-		for (int i = 0; i < word.size(); i++)
+		for (size_t i = 0; i < word.size(); i++)
 		{
 			generated.insert({ word.substr(0, i) + ch + word.substr(i + 1), currDistance });
 		}
-		for (int i = 0; i < word.size() + 1; i++)
+		for (size_t i = 0; i < word.size() + 1; i++)
 		{
 			generated.insert({ word.substr(0, i) + ch + word.substr(i), currDistance });
 		}
