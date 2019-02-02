@@ -13,6 +13,7 @@ int main(int argc, char** argv)
 	}
 
 	ReturnSearch sp(dictionary_path.c_str());
+
 	while (stdin)
 	{
 		std::string input_word;

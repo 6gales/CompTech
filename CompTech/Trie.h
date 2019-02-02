@@ -32,7 +32,8 @@ public:
 
 	void dfs(std::string &str)
 	{
-		if (finite) std::cout << str << std::endl;
+		static size_t counter = 0;
+		if (finite) std::cout << str << std::endl << ++counter << std::endl;
 
 		for (size_t i = 0; i < next.size(); i++)
 		{

@@ -6,7 +6,7 @@ Trie::Trie(std::istream &is)
 	std::string tmp;
 	while (is.good())
 	{
-	is >> tmp;
+		is >> tmp;
 		insert(tmp);
 	}
 }
@@ -19,7 +19,8 @@ void Trie::insert(const std::string &word)
 		if (ptr->getNext(word[i]))
 		{
 			ptr = ptr->getNext(word[i]);
-			ptr->setFinite(i == word.size() - 1);
+			if (i == word.size() - 1)
+				ptr->setFinite(true);
 		}
 		else
 		{
