@@ -41,21 +41,6 @@ void NGramm_Spell_Checker::write_dictionary(map<string, set<string>> ngramm_dict
 	}
 }
 
-std::vector<std::set<std::string>> intersect_sets(std::vector<std::set<std::string>> match_lists, int shift) {
-	if (match_lists.size() == 1) return match_lists;
-	if (match_lists.size() - shift - 2 <= 0) return match_lists;
-	std::set<std::string> tmp;
-	std::set_intersection(
-		match_lists[match_lists.size() - shift - 2].begin(), match_lists[match_lists.size() - shift - 2].end(), 
-		match_lists[match_lists.size() - shift - 1].begin(), match_lists[match_lists.size() - shift - 1].end(),
-		std::inserter(tmp, tmp.begin()));
-	if (tmp.empty()) return intersect_sets(match_lists, shift + 1);
-	match_lists.pop_back();
-	match_lists.pop_back();
-	match_lists.push_back(tmp);
-	return intersect_sets(match_lists, shift);
-}
-
 std::set<std::string> intersect(std::vector<std::set<std::string>> match_lists) {
 
 	if (match_lists.size() == 1) return match_lists[0];
@@ -82,20 +67,23 @@ std::set<std::string> intersect(std::vector<std::set<std::string>> match_lists) 
 
 		if (buffer.empty()) { 
 			i_skipped_lists.push_back(match_lists[i]);
+
 			continue;
 		}
 
 		swap(result, buffer);
 	}
-	if (i_skipped_lists.size() > 1) {
-		std::set<std::string> tmp = intersect(i_skipped_lists);
-		result.insert(tmp.begin(), tmp.end());
+	if (i_skipped_lists.size() > 0) {
+		for (auto i : i_skipped_lists) {
+			for (auto j : i) {
+				result.insert(j);
+			}
+		}
 	}
 	return result;
 }
 
 std::multimap<size_t, std::string> NGramm_Spell_Checker::checkWord(const std::string & word) {
-	//write_dictionary(ngramm_dictionary);
 	if (word.length() >= n_gr) {
 		std::vector<std::set<std::string>> match_lists;
 		for (size_t i = 0; i < word.length() - n_gr + 1; ++i) {
