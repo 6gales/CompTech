@@ -37,10 +37,11 @@ void NorvigSC::known(const std::string& word, std::map<std::string, int>& semant
 	syntactic_variants.insert({ word, 0 });
 	edits(word, syntactic_variants, editDistance);  
 
-	for (int i = 0; i < dic.size(); i++) {
-		auto it = syntactic_variants.find(dic[i]);
-		if (it != syntactic_variants.end()) {
-			semantic_variants[it->first] = it->second;
+	for (auto it : syntactic_variants)
+	{
+		if (dict.find(it.first) != dict.end())
+		{
+			semantic_variants[it.first] = it.second;
 		}
 	}
 }
@@ -54,7 +55,7 @@ NorvigSC::NorvigSC(const char* name) : SpellChecker(name)
 	while (dictionary.good())
 	{
 		dictionary >> word;
-		dic.push_back(word); //заполняем вектор словаря
+		dict.insert(word);
 	}
 }
 

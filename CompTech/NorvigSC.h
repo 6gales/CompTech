@@ -1,11 +1,11 @@
 #pragma once
 #include "Interface.h"
-#include <vector>
+#include <set>
 
 	class NorvigSC : public SpellChecker {
 	private:
 
-		std::vector<std::string> dic;
+		std::set <std::string> dict;
 
 		void edit1(const std::string&, std::multimap<std::string, int>&, size_t);
 		void edits(const std::string&, std::multimap<std::string, int>&, size_t);
