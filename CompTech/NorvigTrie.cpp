@@ -45,7 +45,7 @@ std::vector <std::map <std::string, size_t>> NorvigTrie::edits(const std::string
 
 std::multimap<size_t, std::string> NorvigTrie::checkWord(const std::string &word)
 {
-	editDistance = editDistFormula(word.size());
+	editDistance = 1;
 
 	auto generated = edits(word);
 
