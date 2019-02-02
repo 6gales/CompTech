@@ -21,22 +21,16 @@
     <ClCompile Include="Trie.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="BruteForce.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ReturnSearch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Levinsthein.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="test.cpp">
+    <ClCompile Include="NorvigSC.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="test.h">
-      <Filter>Header Files</Filter>
-    </ClCompile>
-    <ClCompile Include="NorvigSC.cpp">
+    <ClCompile Include="NorvigTrie.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -45,18 +39,6 @@
       <Filter>Resource Files</Filter>
     </Text>
     <Text Include="relevance_order.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="input.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="output.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="test1.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="incorrect.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>
@@ -70,16 +52,13 @@
     <ClInclude Include="Interface.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="BruteForce.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ReturnSearch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="generatingDataSet.h">
+    <ClInclude Include="NorvigSC.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="NorvigSC.h">
+    <ClInclude Include="NorvigTrie.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -6,7 +6,7 @@ Trie::Trie(std::istream &is)
 	std::string tmp;
 	while (is.good())
 	{
-	is >> tmp;
+		is >> tmp;
 		insert(tmp);
 	}
 }
@@ -27,4 +27,18 @@ void Trie::insert(const std::string &word)
 			ptr = ptr->getNext(word[i]);
 		}
 	}
+}
+
+bool Trie::findWord(const std::string &word) const
+{
+	const 	TNode *ptr = head;
+	for (size_t i = 0; i < word.size(); i++)
+	{
+		if (ptr->getNext(word[i]))
+		{
+			ptr = ptr->getNext(word[i]);
+		}
+		else return false;
+	}
+	return ptr->isFinal();
 }
