@@ -1,16 +1,16 @@
 #pragma once
-#include "Interface.h"
 #include <set>
+#include <vector>
+#include "Interface.h"
 
-	class NorvigSC : public SpellChecker {
+class NorvigSC : public SpellChecker {
 	private:
 
 		std::set <std::string> dict;
 
-		void edit1(const std::string&, std::multimap<std::string, int>&, size_t);
-		void edits(const std::string&, std::multimap<std::string, int>&, size_t);
-		void known(const std::string&, std::map<std::string, int>&);
-
+		std::map<std::string, size_t> editWord(const std::string &, size_t);
+		std::vector <std::map <std::string, size_t>> edits(const std::string &);
+		
 	public:
 		NorvigSC(const char*);
 
