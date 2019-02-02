@@ -45,9 +45,6 @@ std::vector <std::map <std::string, size_t>> NorvigSC::edits(const std::string& 
 
 NorvigSC::NorvigSC(const char* name) : SpellChecker(name)
 {
-	editDistFormula = editDistFormula = [](size_t sz) -> size_t
-	{ if (sz / 2 + sz % 2 >= 2) return 2; return 1; };
-
 	std::string word;
 	while (dictionary.good())
 	{
@@ -58,7 +55,7 @@ NorvigSC::NorvigSC(const char* name) : SpellChecker(name)
 
 std::multimap<size_t, std::string> NorvigSC::checkWord(const std::string& word)
 {
-	editDistance = editDistFormula(word.size());
+	editDistance = 1;
 
 	std::multimap<size_t, std::string> result;
 	
