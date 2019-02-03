@@ -13,7 +13,7 @@ First we build prefix tree from dictionary, then, to find particullar word we us
 
 ### Norvig alghorithm
 The main idea is to generate all possible variants of source word at a given distance and searching them for O(log(N))
-[Link to original article] (https://norvig.com/spell-correct.html)
+[Link to original article](https://norvig.com/spell-correct.html)
 
 ### Trie using Norvig
 Combination of generating each possible variant using Norvig and searching for them using Trie (search in O(k), k is word lenght)
