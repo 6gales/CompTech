@@ -35,9 +35,9 @@ First generating sets of N-gramms for each word from dictionary, same for source
 mentioned one.
 
 
-### Test results
+## Test results
 
-###Name	Average time per word, s.	Chance, %.
+### Name	Average time per word, s.	Chance, %.
 ```
 BruteForce	0,0576212		92,804
 		
