@@ -15,72 +15,93 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Trie.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="BruteForce.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ReturnSearch.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Levinsthein.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="test.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="test.h">
-      <Filter>Header Files</Filter>
-    </ClCompile>
-    <ClCompile Include="NorvigSC.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
     <Text Include="alphabet_order.txt">
       <Filter>Resource Files</Filter>
     </Text>
     <Text Include="relevance_order.txt">
       <Filter>Resource Files</Filter>
     </Text>
-    <Text Include="input.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="output.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="test1.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="incorrect.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Levinsthein.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="SpellChecker.hpp">
+      <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="Trie.h">
+    <ClInclude Include="BruteForce.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Interface.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="BruteForce.h">
+    <ClInclude Include="Levenshtein.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Trie.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ReturnSearch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="generatingDataSet.h">
+    <ClInclude Include="BKtree.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NorvigTrie.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="NorvigSC.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="SymSpell.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LinSpell.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="n-gramm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="n-gramm_alphabet_order.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="n-gramm_linear.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="BruteForce.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Levenshtein.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Trie.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NorvigTrie.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NorvigSC.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ReturnSearch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BKtree.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SymSpell.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LinSpell.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="n-gramm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="n-gramm_alphbet_order.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="n-gramm_linear.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

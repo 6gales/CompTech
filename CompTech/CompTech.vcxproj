@@ -115,31 +115,38 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="BruteForce.cpp" />
-    <ClCompile Include="Levinsthein.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="NorvigSC.cpp" />
-    <ClCompile Include="ReturnSearch.cpp" />
-    <ClCompile Include="test.cpp" />
-    <ClCompile Include="test.h" />
-    <ClCompile Include="Trie.cpp" />
-  </ItemGroup>
-  <ItemGroup>
     <Text Include="alphabet_order.txt" />
-    <Text Include="incorrect.txt" />
-    <Text Include="input.txt" />
-    <Text Include="output.txt" />
     <Text Include="relevance_order.txt" />
-    <Text Include="test1.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BKtree.h" />
     <ClInclude Include="BruteForce.h" />
-    <ClInclude Include="generatingDataSet.h" />
     <ClInclude Include="Interface.h" />
-    <ClInclude Include="Levinsthein.h" />
+    <ClInclude Include="Levenshtein.h" />
+    <ClInclude Include="LinSpell.h" />
+    <ClInclude Include="n-gramm.h" />
+    <ClInclude Include="n-gramm_alphabet_order.h" />
+    <ClInclude Include="n-gramm_linear.h" />
     <ClInclude Include="NorvigSC.h" />
+    <ClInclude Include="NorvigTrie.h" />
     <ClInclude Include="ReturnSearch.h" />
+    <ClInclude Include="SpellChecker.hpp" />
+    <ClInclude Include="SymSpell.h" />
     <ClInclude Include="Trie.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="BKtree.cpp" />
+    <ClCompile Include="BruteForce.cpp" />
+    <ClCompile Include="Levenshtein.cpp" />
+    <ClCompile Include="LinSpell.cpp" />
+    <ClCompile Include="n-gramm.cpp" />
+    <ClCompile Include="n-gramm_alphbet_order.cpp" />
+    <ClCompile Include="n-gramm_linear.cpp" />
+    <ClCompile Include="NorvigSC.cpp" />
+    <ClCompile Include="NorvigTrie.cpp" />
+    <ClCompile Include="ReturnSearch.cpp" />
+    <ClCompile Include="SymSpell.cpp" />
+    <ClCompile Include="Trie.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

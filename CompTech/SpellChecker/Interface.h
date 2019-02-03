@@ -18,6 +18,6 @@ public:
 	void setFormula(std::function <size_t(size_t)> f) { editDistFormula = f; }
 
 	virtual std::multimap <size_t, std::string> checkWord(const std::string &) = 0;
-	
+
 	virtual ~SpellChecker() {}
 };

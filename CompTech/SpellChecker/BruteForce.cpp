@@ -1,5 +1,4 @@
 #include "BruteForce.h"
-//#include "Levinsthein.h"
 
 std::multimap <size_t, std::string> BruteForce::checkWord(const std::string &source)
 {
@@ -11,7 +10,7 @@ std::multimap <size_t, std::string> BruteForce::checkWord(const std::string &sou
 	while (dictionary.good())
 	{
 		dictionary >> tmp;
-		size_t dist = LevensteinDistance(source, tmp);
+		size_t dist = LevenshteinDistance(source, tmp);
 
 		if (dist <= editDistance)
 			suggestions.insert({ dist, tmp });

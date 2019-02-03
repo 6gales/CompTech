@@ -1,7 +1,7 @@
 #pragma once
 #include "Interface.h"
 #include "Trie.h"
-#include "Levinsthein.h"
+#include "Levenshtein.h"
 
 class Solution
 {
@@ -11,7 +11,7 @@ class Solution
 	std::multimap <size_t, std::string> suggestions;
 public:
 	Solution(const std::string &_s) :source(_s) {}
-	const Solution &operator+=(unsigned char ch) { word += ch; lastDistance = LevensteinDistance(source, word); return *this; }
+	const Solution &operator+=(unsigned char ch) { word += ch; lastDistance = LevenshteinDistance(source, word); return *this; }
 	const Solution &operator--() { if (word.size()) word.pop_back(); return *this; }
 	void addWord() { suggestions.insert({ lastDistance, word }); }
 
@@ -22,8 +22,8 @@ public:
 
 class ReturnSearch : public SpellChecker
 {
-public:
 	Trie wordTree;
+
 public:
 	ReturnSearch(const char *name) : SpellChecker(name), wordTree(dictionary) {}
 

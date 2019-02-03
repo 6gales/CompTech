@@ -1,10 +1,10 @@
-#include "Levinsthein.h"
+#include "Levenshtein.h"
 
-size_t LevensteinDistance(const std::string &source, const std::string &target)
+size_t LevenshteinDistance(const std::string &source, const std::string &target)
 {
 	if (source.size() > target.size())
 	{
-		return LevensteinDistance(target, source);
+		return LevenshteinDistance(target, source);
 	}
 
 	const size_t min_size = source.size(), max_size = target.size();

@@ -6,7 +6,7 @@ std::multimap<size_t, std::string> ReturnSearch::checkWord(const std::string &so
 
 	Solution resolve{ source };
 	const TNode *curr = wordTree.getHead();
-	
+
 	recursiveSearch(curr, resolve);
 
 	return resolve.getSuggestions();
@@ -21,7 +21,7 @@ void ReturnSearch::recursiveSearch(const TNode *curr, Solution &resolve)
 	}
 	if (resolve.getDistance() <= editDistance && curr->isFinal())
 		resolve.addWord();
-	
+
 	for (size_t i = 0; i < std::numeric_limits<unsigned char>::max() + 1; i++)
 	{
 		if (curr->getNext(static_cast<unsigned char>(i)))

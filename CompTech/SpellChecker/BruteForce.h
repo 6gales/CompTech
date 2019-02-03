@@ -1,9 +1,9 @@
 #pragma once
 #include "Interface.h"
-#include "Levinsthein.h"
+#include "Levenshtein.h"
 
 class BruteForce : public SpellChecker
-{	
+{
 public:
 	BruteForce(const char *name) : SpellChecker(name) {}
 
