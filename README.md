@@ -37,7 +37,7 @@ mentioned one.
 
 ### Test results
 
-#### Name	Average time per word, s.	Chance, %.
+#### Name		Average time per word, s.		Chance, %.
 ```
 BruteForce	0,0576212		92,804
 		
